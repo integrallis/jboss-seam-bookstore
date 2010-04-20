@@ -1,0 +1,12 @@
+.project
+.settings/*
+**/*.class
+**/target
+db/BookStore
+**/.classpath
+**/.externalToolBuilders
+**/.project
+**/.settings/*
+db/**/.log
+db/derby.log
+**/bin
