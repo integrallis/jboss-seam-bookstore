@@ -6,7 +6,7 @@
 	
 	<begin-conversation join="true"/>
 	
-	<navigation from-action="#{personService.saveOrUpdate(person)}">
+	<navigation from-action="#{personHome.persist(person)}">
 		<rule if-outcome="success">
 			<redirect>
 				<message>#{messages['general.save.success']}
@@ -15,7 +15,7 @@
 		</rule>
 	</navigation>
 
-	<navigation from-action="#{personService.delete(person)}">
+	<navigation from-action="#{personHome.remove(person)}">
 		<rule if-outcome="success">
 			<redirect view-id="/page/person/personList.xhtml">
 				<message>#{messages['general.delete.success']}

@@ -12,7 +12,7 @@
 					</h:panelGroup>
 				</f:facet>
 	        
-				<rich:extendedDataTable value="#{personListService.resultList}" var="person" sortMode="single" rows="#{personListService.maxResults}" 
+				<rich:extendedDataTable value="#{personListEntityService.resultList}" var="person" sortMode="single" rows="#{personListEntityService.maxResults}" 
 						onRowMouseOver="this.className='extdt-row-selected'"
 		        		onRowMouseOut="this.className=''"
 		        		id="personListTable">
@@ -24,9 +24,9 @@
 								<h:outputText value="#{messages['general.create']}" />
 							</h:commandLink>
 							
-							<h:selectOneMenu value="#{personListService.maxResults}" id="maxResults" style="float:right;">
-								<s:selectItems var="option" value="#{personListService.maxResultsOption}" label="#{option}"/>
-								<a:support event="onchange" action="#{personListService.refresh}" reRender="personListTable"/> 
+							<h:selectOneMenu value="#{personListEntityService.maxResults}" id="maxResults" style="float:right;">
+								<s:selectItems var="option" value="#{personListEntityService.maxResultsOption}" label="#{option}"/>
+								<a:support event="onchange" action="#{personListEntityService.refresh}" reRender="personListTable"/> 
 							</h:selectOneMenu>
 						</h:panelGroup>
 					</f:facet>

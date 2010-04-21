@@ -58,4 +58,11 @@
 		<value>xyz/.../processdefinition.xml</value>
 		</bpm:process-definitions> </bpm:jbpm>
 	-->
+	<!-- Basic example
+	<framework:entity-query name="artists" ejbql="select artist from Artist artist" order="artist.name DESC" max-results="5">
+      <framework:restrictions>
+        <value>lower(artist.name) like lower(concat(#{exampleArtist.name}, '%'))</value>
+      </framework:restrictions>
+    </framework:entity-query>
+	-->
 </components>

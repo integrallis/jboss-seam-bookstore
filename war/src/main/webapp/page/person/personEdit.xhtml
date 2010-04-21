@@ -16,32 +16,34 @@
 				
 				<s:decorate id="personFirstnameDecoration" template="/layout/edit.xhtml">
                 	<ui:define name="label">#{messages['person.firstname']}:</ui:define>
-                	<h:inputText required="true" id="firstname" value="#{person.firstname}" style="width:300px;"/>
+                	<h:inputText required="true" id="firstname" value="#{personHome.instance.firstname}" style="width:300px;"/>
             	</s:decorate>
             	
             	<s:decorate id="personLastnameDecoration" template="/layout/edit.xhtml">
                 	<ui:define name="label">#{messages['person.lastname']}:</ui:define>
-                	<h:inputText value="#{person.lastname}" required="true" id="lastname" style="width:300px;"/> 
+                	<h:inputText value="#{personHome.instance.lastname}" required="true" id="lastname" style="width:300px;"/> 
             	</s:decorate>
             	
             	<s:decorate id="personBirthdayDecoration" template="/layout/edit.xhtml">
                 	<ui:define name="label">#{messages['person.birthday']}:</ui:define>
-                	<rich:calendar datePattern="#{messages['formatter.date.long']}" value="#{person.birthday}" required="true" id="birthday" style="width:300px;"/>
+                	<rich:calendar datePattern="#{messages['formatter.date.long']}" value="#{personHome.instance.birthday}" required="true" id="birthday" style="width:300px;"/>
             	</s:decorate>
             	
             	<s:decorate id="personGenderDecoration" template="/layout/edit.xhtml">
                 	<ui:define name="label">#{messages['person.gender']}:</ui:define>
                 	
-                	<h:selectOneMenu value="#{person.gender}" required="true" id="genderOption" style="width:300px;">
+                	<h:selectOneMenu value="#{personHome.instance.gender}" required="true" id="genderOption" style="width:300px;">
                 		<s:selectItems var="gender" value="#{gender}" label="#{gender}" id="gender"/>
                 		<s:convertEnum/>
                 	</h:selectOneMenu>
             	</s:decorate>
             	
 				<s:decorate template="/layout/buttonbox.xhtml" id="personButtonBox">
-					<h:commandButton action="#{personService.saveOrUpdate(person)}" value="#{messages['general.save']}" id="save"/>
-					<h:commandButton action="#{personService.delete(person)}" value="#{messages['general.delete']}" id="delete"/>
+					<h:commandButton action="#{personHome.persist(person)}" value="#{messages['general.save']}" id="save"/>
+					<h:commandButton action="#{personHome.remove(person)}" value="#{messages['general.delete']}" id="delete"/>
+					<!--
 					<s:button action="#{personService.refresh(person)}" value="#{messages['general.back']}" view="/page/person/personList.xhtml" id="back"/>
+					-->
 				</s:decorate>       
 			</rich:panel>
 		</h:form>	

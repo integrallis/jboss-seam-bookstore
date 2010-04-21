@@ -45,5 +45,19 @@
 			<artifactId>persistence-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>3.0.0.ga</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.3.0.ga</version>
+            <scope>provided</scope>
+        </dependency>
 	</dependencies>
 </project>
