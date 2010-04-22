@@ -10,6 +10,7 @@
 		<rich:toolBarGroup location="left" id="tool-bar-group-left">
 			<rich:menuItem value="#{messages['general.home']}" action="home" id="home" />
 			<rich:menuItem value="#{messages['person.list']}" action="personList" id="personList" rendered="#{identity.loggedIn}"/>
+			<rich:menuItem value="#{messages['book.search']}" action="bookSearch" id="bookSearch" rendered="#{identity.loggedIn}"/>
 		
 		
 			<ui:include src="/layout/status.xhtml"/>

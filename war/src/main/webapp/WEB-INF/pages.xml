@@ -15,6 +15,9 @@
 			<end-conversation before-redirect="true"/>
 			<redirect view-id="/page/person/personList.xhtml"></redirect>
 		</navigation>	
+		<navigation from-action="bookSearch">
+			<redirect view-id="/page/book/bookSearch.xhtml"></redirect>
+		</navigation>				
 	</page>
 	
 	<!--
