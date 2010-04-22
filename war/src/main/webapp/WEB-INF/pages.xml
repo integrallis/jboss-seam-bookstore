@@ -25,6 +25,8 @@
 	<page view-id="/home.*" login-required="true" />
 	<page view-id="/index.*" login-required="true" />
 	<page view-id="/login.*" login-required="false" />
+	
+	<page view-id="/greeting.*" login-required="false" />
 
 	<page view-id="/layout/*" login-required="false" />
 	<page view-id="/img/*" login-required="false" />
