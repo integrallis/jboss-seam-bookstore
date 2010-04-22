@@ -58,4 +58,9 @@
 		<value>xyz/.../processdefinition.xml</value>
 		</bpm:process-definitions> </bpm:jbpm>
 	-->
+	
+	<component name="finder" 
+		class="com.integrallis.modernjee.seam.bookstore.logic.service.FindABookBean"
+		scope="application">
+	</component>
 </components>
