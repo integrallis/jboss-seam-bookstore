@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://jboss.com/products/seam/taglib"
+		xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich"
+		xmlns:a="http://richfaces.org/a4j" template="/layout/template.xhtml">
+		
+	<ui:define name="center">
+	PRINT ME OUT #{authors}
+		<a:form id="personListForm">
+			<rich:panel>
+				<f:facet name="header">
+					<h:panelGroup>
+						<h:outputFormat value="#{messages['book.search']}" />
+					</h:panelGroup>
+				</f:facet>
+	        		
+				<rich:extendedDataTable value="#{searchResults}" var="book" sortMode="single" rows="10" 
+						onRowMouseOver="this.className='extdt-row-selected'"
+		        		onRowMouseOut="this.className=''"
+		        		id="bookListTable">
+					<f:facet name="header">
+						<h:panelGroup>
+							<h:selectOneMenu value="#{book.author}" required="true" id="bookAuthor" style="width:300px;">
+                				<s:selectItems var="author" value="#{authors}" id="authorId"
+                					label="#{author}"/>
+                			</h:selectOneMenu>
+							<s:decorate id="personFirstnameDecoration" template="/layout/edit.xhtml">
+					        	<ui:define name="label">#{messages['book.title']}:</ui:define>
+					        	<h:inputText required="true" id="titleToSearch" name="titleToSearch" style="width:300px;"/>
+					    	</s:decorate>
+					    	<h:commandButton action="#{searchService.getResults()}" value="#{messages['general.find']}" id="search"/>
+						</h:panelGroup>
+					</f:facet>
+					
+					<rich:column sortable="true" sortBy="#{book.title}" filterBy="#{person.firstname}"  label="#{messages['book.title']}" width="50%">
+						<f:facet name="header">#{messages['book.title']}</f:facet>
+						<h:outputText value="#{book.title}" />
+					</rich:column>					
+										
+					<f:facet name="footer">
+						<rich:datascroller for="bookListTable"  id="bookListTableScroller" />
+					</f:facet>
+				</rich:extendedDataTable>
+			</rich:panel>
+		</a:form>
+	
+	</ui:define>
+</ui:composition>
