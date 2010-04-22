@@ -6,4 +6,5 @@ import com.integrallis.modernjee.seam.bookstore.model.Book;
 
 public interface SearchService {
 	List<Book> getResults();
+	void lookUpAuthors();
 }

@@ -3,8 +3,7 @@
 		xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich"
 		xmlns:a="http://richfaces.org/a4j" template="/layout/template.xhtml">
 		
-	<ui:define name="center">
-	PRINT ME OUT #{authors}
+	<ui:define name="center">	
 		<a:form id="personListForm">
 			<rich:panel>
 				<f:facet name="header">
@@ -19,7 +18,7 @@
 		        		id="bookListTable">
 					<f:facet name="header">
 						<h:panelGroup>
-							<h:selectOneMenu value="#{book.author}" required="true" id="bookAuthor" style="width:300px;">
+							<h:selectOneMenu required="true" id="bookAuthor" style="width:300px;">
                 				<s:selectItems var="author" value="#{authors}" id="authorId"
                 					label="#{author}"/>
                 			</h:selectOneMenu>
