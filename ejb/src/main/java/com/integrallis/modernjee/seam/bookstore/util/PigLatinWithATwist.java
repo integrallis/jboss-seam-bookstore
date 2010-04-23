@@ -5,7 +5,7 @@ public class PigLatinWithATwist {
 	int i = 0;
 	
 	public String translate(String word) {
-		return convertPigLatinWord(word)+":"+i++;
+		return convertPigLatinWord(word);
 	}
 
 	public static boolean isVowel(char c) {

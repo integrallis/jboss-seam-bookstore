@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://jboss.com/products/seam/taglib"
+		xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich"
+		xmlns:a="http://richfaces.org/a4j" template="/layout/template.xhtml">
+		
+	<ui:define name="center">	
+		<a:form id="bookCartForm">
+			<rich:panel>
+				<f:facet name="header">
+					<h:panelGroup>
+						<s:decorate id="bookingCartName" template="/layout/edit.xhtml">
+		                	<ui:define name="label">#{messages['bookingCart.name']}:</ui:define>
+		                	<h:inputText required="true" id="name" value="#{bookingCart.name}" style="width:300px;"/>
+		            	</s:decorate>
+		            	<s:decorate id="bookingCartCreditCard" template="/layout/edit.xhtml">
+		                	<ui:define name="label">#{messages['bookingCart.creditCard']}:</ui:define>
+		                	<h:inputText required="true" id="creditCard" value="#{bookingCart.creditCard}" style="width:300px;"/>
+		            	</s:decorate>
+						<s:button action="#{checkoutService.purchase()}" value="Purchase" id="purchase"/>						
+					</h:panelGroup>
+				</f:facet>
+					        		
+				<rich:extendedDataTable value="#{bookingCart.books}" var="book" sortMode="single" rows="10" 
+						onRowMouseOver="this.className='extdt-row-selected'"
+		        		onRowMouseOut="this.className=''"
+		        		id="bookListTable">
+					
+					<rich:column sortable="true" sortBy="#{book.title}" label="#{messages['book.title']}" width="50%">
+						<f:facet name="header">#{messages['book.title']}</f:facet>
+						#{book.title}
+					</rich:column>				
+										
+					<f:facet name="footer">
+						<rich:datascroller for="bookListTable"  id="bookListTableScroller" />
+					</f:facet>
+				</rich:extendedDataTable>
+			</rich:panel>
+		</a:form>
+	
+	</ui:define>
+</ui:composition>

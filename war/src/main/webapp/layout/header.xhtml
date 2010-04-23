@@ -11,7 +11,7 @@
 			<rich:menuItem value="#{messages['general.home']}" action="home" id="home" />
 			<rich:menuItem value="#{messages['person.list']}" action="personList" id="personList" rendered="#{s:hasRole('admin')}"/>
 			<rich:menuItem value="#{messages['book.search']}" action="bookSearch" id="bookSearch" rendered="#{identity.loggedIn}"/>
-		
+			<rich:menuItem value="#{messages['purchase.cart']}" action="cart" id="cart" rendered="#{identity.loggedIn}"/>
 		
 			<ui:include src="/layout/status.xhtml"/>
 		</rich:toolBarGroup>

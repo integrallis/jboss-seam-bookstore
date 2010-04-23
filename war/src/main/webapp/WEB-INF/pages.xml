@@ -17,7 +17,13 @@
 		</navigation>	
 		<navigation from-action="bookSearch">
 			<redirect view-id="/page/book/bookSearch.xhtml"></redirect>
-		</navigation>				
+		</navigation>
+		<navigation from-action="cart">
+			<redirect view-id="/page/checkout/cart.xhtml"></redirect>
+		</navigation>
+		<navigation from-action="pay">
+			<redirect view-id="/page/checkout/pay.xhtml"></redirect>
+		</navigation>															
 	</page>
 	
 	<!--

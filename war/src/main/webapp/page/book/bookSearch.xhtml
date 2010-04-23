@@ -4,7 +4,6 @@
 		xmlns:a="http://richfaces.org/a4j" template="/layout/template.xhtml">
 		
 	<ui:define name="center">	
-	Who am i ? #{pigLatinService.getClass().getName()}
 		<a:form id="personListForm">
 			<rich:panel>
 				<f:facet name="header">
@@ -29,12 +28,25 @@
 					    	</s:decorate>
 					    	<h:commandButton action="#{searchService.getResults()}" value="#{messages['general.find']}" id="search"/>
 						</h:panelGroup>
-					</f:facet>
+					</f:facet>				
+										
+					<rich:column sortable="true" label="#{messages['purchase.buy']}">
+						<f:facet name="header">#{messages['purchase.buy']}</f:facet>
+						<s:link action="#{checkoutService.addToCart()}" value="#{messages['purchase.buy']}" id="purchaseWithBookLink">
+							<f:param name="bookId" value="#{book.id}" />
+						</s:link>						
+					</rich:column>		
 					
-					<rich:column sortable="true" sortBy="#{book.title}" filterBy="#{person.firstname}"  label="#{messages['book.title']}" width="50%">
+					<rich:column sortable="true" sortBy="#{book.title}" filterBy="#{book.title}"  label="#{messages['book.title']}" width="35%">
 						<f:facet name="header">#{messages['book.title']}</f:facet>
+						#{book.title}
+					</rich:column>	
+					
+					<rich:column sortable="true" sortBy="#{book.title}" filterBy="#{book.title}"  label="#{messages['book.pig']}" width="35%">
+						<f:facet name="header">#{messages['book.pig']}</f:facet>
 						#{pigLatinService.translate(book.title)}
-					</rich:column>					
+					</rich:column>						
+								
 										
 					<f:facet name="footer">
 						<rich:datascroller for="bookListTable"  id="bookListTableScroller" />

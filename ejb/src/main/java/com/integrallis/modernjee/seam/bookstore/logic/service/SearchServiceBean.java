@@ -43,7 +43,6 @@ public class SearchServiceBean implements SearchService {
 	
 	@SuppressWarnings("unchecked")
 	public List<Book> getResults() {
-		System.out.println("~~~~~~ WTF!~~~~~");
 		log.info("- Search -");
 		searchResults = new ArrayList<Book>();
 		if (titleToSearch != null && titleToSearch.trim().length() > 0) {
@@ -61,7 +60,7 @@ public class SearchServiceBean implements SearchService {
 	
 	@Factory(value = "authors")
 	public void lookUpAuthors() {	
-		log.info("lookup the authors");
+		//log.info("lookup the authors");
 		authors = authorService.findAllAuthors();
 	}
 }
