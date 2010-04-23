@@ -38,6 +38,13 @@
 	-->
 	<security:identity authenticate-method="#{authenticator.authenticate}" />
 
+	<event type="org.jboss.seam.notLoggedIn">
+		<action execute="#{redirect.captureCurrentView}"/>
+	</event>
+	<event type="org.jboss.seam.postAuthenticate">
+		<action execute="#{redirect.returnToCapturedView}"/>
+	</event>
+	
 	<mail:mail-session host="localhost" password="test"
 		port="2525" username="test" />
 	<!--

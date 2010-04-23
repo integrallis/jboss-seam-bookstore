@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
+import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Factory;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;
@@ -13,6 +14,7 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Out;
 import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.log.Log;
+import org.jboss.seam.security.Identity;
 
 import com.integrallis.modernjee.seam.bookstore.model.Author;
 import com.integrallis.modernjee.seam.bookstore.model.Book;
@@ -27,7 +29,7 @@ public class SearchServiceBean implements SearchService {
 	@In
 	EntityManager entityManager;
 	
-	@In(create = true)
+	@In
 	AuthorService authorService;
 	
 	@Logger
@@ -36,7 +38,7 @@ public class SearchServiceBean implements SearchService {
 	@Out(required = false)
 	List<Book> searchResults;
 	
-	@Out(required = false)
+	@Out(required = false, scope = ScopeType.PAGE)
 	List<Author> authors;
 	
 	@SuppressWarnings("unchecked")
@@ -57,7 +59,9 @@ public class SearchServiceBean implements SearchService {
 		return searchResults;
 	}
 	
-	public void lookUpAuthors() {		
+	@Factory(value = "authors")
+	public void lookUpAuthors() {	
+		log.info("lookup the authors");
 		authors = authorService.findAllAuthors();
 	}
 }

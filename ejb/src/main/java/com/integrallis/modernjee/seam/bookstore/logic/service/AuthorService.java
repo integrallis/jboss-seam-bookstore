@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.jboss.seam.annotations.AutoCreate;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 
 import com.integrallis.modernjee.seam.bookstore.model.Author;
 
 @Name("authorService")
+@AutoCreate
 public class AuthorService {
 
 	@In

@@ -14,6 +14,7 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Observer;
 import org.jboss.seam.annotations.Out;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.security.Restrict;
 
 import com.integrallis.modernjee.seam.bookstore.logic.framework.AbstractEntityListServiceBean;
 import com.integrallis.modernjee.seam.bookstore.model.Gender;

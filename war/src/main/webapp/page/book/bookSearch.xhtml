@@ -4,6 +4,7 @@
 		xmlns:a="http://richfaces.org/a4j" template="/layout/template.xhtml">
 		
 	<ui:define name="center">	
+	Who am i ? #{pigLatinService.getClass().getName()}
 		<a:form id="personListForm">
 			<rich:panel>
 				<f:facet name="header">
@@ -32,7 +33,7 @@
 					
 					<rich:column sortable="true" sortBy="#{book.title}" filterBy="#{person.firstname}"  label="#{messages['book.title']}" width="50%">
 						<f:facet name="header">#{messages['book.title']}</f:facet>
-						<h:outputText value="#{book.title}" />
+						#{pigLatinService.translate(book.title)}
 					</rich:column>					
 										
 					<f:facet name="footer">
