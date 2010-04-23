@@ -5,6 +5,8 @@
 		login-required="true">
 		
 	<navigation from-action="#{checkoutService.purchase()}">
-		<redirect view-id="/page/checkout/done.xhtml"/>
+		<redirect view-id="/page/book/bookSearch.xhtml">
+			<message>Thank you for purchasing a few books</message>
+		</redirect>
 	</navigation>
 </page>
